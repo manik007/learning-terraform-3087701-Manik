@@ -28,7 +28,7 @@ module "blog_vpc" {
 
   public_subnets  = ["${var.environment.network_prefix}.101.0/24", "${var.environment.network_prefix}.102.0/24", "${var.environment.network_prefix}.103.0/24"]
 
-  enable_nat_gateway = true
+  #enable_nat_gateway = true
 
   tags = {
     Terraform = "true"
