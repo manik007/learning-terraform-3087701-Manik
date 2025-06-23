@@ -34,9 +34,9 @@ module "blog_vpc" {
   }
 }
 
-module "autoscaling" {
+module "asg" {
   source  = "terraform-aws-modules/autoscaling/aws"
-  version = "8.3.0"
+  #version = "8.3.0"
 
   name = "blog"
   min_size = 1
