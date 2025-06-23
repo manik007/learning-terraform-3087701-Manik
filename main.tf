@@ -73,7 +73,7 @@ module "aws_lb_listener" {
     }
   ]
 
-  listeners = [
+  http_tcp_listeners = [
     {
       port               = 80
       protocol           = "HTTP"
