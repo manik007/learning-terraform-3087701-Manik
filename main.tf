@@ -34,16 +34,18 @@ module "blog_vpc" {
   }
 }
 
-module "asg" {
+module "autoscaling" {
   source  = "terraform-aws-modules/autoscaling/aws"
-  #version = "8.3.0"
+  version = "8.3.0"
 
   name = "blog"
   min_size = 1
   max_size = 2
+  
+  desired capacity = 1
 
   vpc_zone_identifier   = module.blog_vpc.public_subnets
- # target_group_arns     = module.blog_alb.target_group_arns
+ #target_group_arns     = module.blog_alb.target_group_arns
   security_groups       = [module.blog_sg.security_group_id]
   
   image_id              = data.aws_ami.app_ami.id
