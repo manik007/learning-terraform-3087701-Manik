@@ -47,7 +47,7 @@ resource "aws_instance" "blog" {
   }
 }
 
-module "aws_lb_listener" "this" {
+module "aws_lb_listener" {
   source = "terraform-aws-modules/alb/aws"
 
   name    = "blog-alb"
@@ -58,7 +58,7 @@ module "aws_lb_listener" "this" {
   subnets         = module.blog_vpc.public_subnets
   security_groups = [module.blog_sg.security_group_id]
 
-  target_groups = {
+  target_groups = [
     ex-instance = {
       name_prefix      = "blog"
       protocol         = "HTTP"
@@ -66,7 +66,7 @@ module "aws_lb_listener" "this" {
       target_type      = "instance"
       target_id        = aws_instance.blog.id
     }
-  }
+  ]
 
   listeners = [
     {
