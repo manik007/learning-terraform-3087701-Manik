@@ -47,7 +47,7 @@ resource "aws_instance" "blog" {
   }
 }
 
-module "alb" {
+module "aws_lb" "dev" {
   source = "terraform-aws-modules/alb/aws"
 
   name    = "blog-alb"
