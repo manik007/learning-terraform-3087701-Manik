@@ -47,8 +47,9 @@ resource "aws_instance" "blog" {
   }
 }
 
-module "aws_lb_listener" {
+module "alb" {
   source = "terraform-aws-modules/alb/aws"
+  version = "~> 6.0"
 
   name    = "blog-alb"
 
