@@ -36,7 +36,7 @@ module "blog_vpc" {
   }
 }
 
-resource "aws_instance" "${var.environment.name}-blog" {
+resource "aws_instance" "blog" {
   ami                   = data.aws_ami.app_ami.id
   instance_type         = var.instance_type
 
